@@ -1,0 +1,73 @@
+
+{% extends 'hosp/base.html' %}
+
+{% block title %} Patient Detail {% endblock %}
+{{% block nav %}<a class="navbar-brand" href="" >Patient Details </a>{% endblock %}
+
+{%block nav2 %} <a class="nav-link" href="{% url 'patient_profile' %}">Patient Profile</a>{% endblock %}
+{%block search%} {% url 'doctor_search' %}{%endblock%}
+
+
+ {% block content %}
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Doctor</th>
+      <th scope="col">Diagnosis</th>
+      <th scope="col">Prescription</th>
+      <th scope="col">Active</th>
+    </tr>
+  </thead>
+ <tbody>
+    <tr>
+      <th scope="row"><a class="link" style="color: black;"href="{% url 'doc_profile'  treatment.doctor.id  %}">{{treatment.doctor}}</a></th>
+      <td>{{treatment.diagnosis}}</td>
+      <td>{{treatment.prescription}}</td>
+      <td>{{treatment.active}}</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Comments of this Treatment</h3>
+ <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Doctor</th>
+    </tr>
+  </thead>
+   {% for comment in comments %}
+ <tbody>
+    <tr>
+      <th>{{ forloop.counter }}</th>
+      <td>{{comment.comment}}</td>
+     <th scope="row"><a class="link" style="color: black;"href="{% url 'doc_profile'  comment.doctor.id  %}">{{comment.doctor}}</a></th>
+    </tr>
+  </tbody>
+ {% endfor %}
+</table>
+
+
+<div class="container">
+<h2>GIVE RATTING</h2>
+
+<form method="POST" action="{% url 'patient_detail'  treatment.id  %}">
+  {% csrf_token %}
+<div class="form-row">
+   <div class="col">
+      <select id="" name="quantity" class="form-control">
+        <option selected>Rate</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+         </select>
+   </div>
+</div>   
+<br><input type="submit" value="submit">
+</form>
+ </div>
+
+
+ {% endblock %}

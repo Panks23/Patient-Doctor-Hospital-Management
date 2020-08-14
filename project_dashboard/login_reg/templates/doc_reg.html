@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+ {% block navbar %}
+           <a class="navbar-brand">Doctor Registration</a>
+    {% endblock %}
+{% block content %}
+<div class="container" id="reg">
+<form method="POST">
+     {% csrf_token %}
+   <div class="form-row">
+   <div class="col"><input type="text" id="first" name="firstName" class="form-control" placeholder="First name"></div>
+   <div class="col"><input type="text" id="last" name="lastName" class="form-control" placeholder="Last name"></div>
+   <div class="col">
+      <select id="" name="gender" class="form-control">
+         <option selected>Gender</option>
+         <option>Male</option>
+         <option>Female</option>
+         <option>Others</option>
+      </select>
+   </div>
+</div>
+<div class="form-row">
+ <div class="col"> {{form.email}}</div>
+  <div class="col">{{form.password1}}</div>
+   <div class="col">{{form.password2}}</div>
+
+</div>
+<div class="form-row">
+   <div class="col">
+      <input type="text" id="bday" name="bday" class="form-control datepicker" placeholder="Birth Day">
+   </div>
+    <div class="col">
+        <select id="hospital1" name="hospital" class="form-control">
+    <option selected>Hospital</option>
+    {% if hospital %}
+           {% for h in hospital %}
+            <option value="{{h.id}}">{{h.name}}</option>
+   {% endfor %}
+    {% endif %}
+      </select>   </div>
+</div>
+     <input class="btn btn-primary btnn" type="submit" value="Register">
+   </form>
+   </div>
+
+
+{% endblock %}

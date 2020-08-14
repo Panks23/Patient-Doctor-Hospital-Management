@@ -1,0 +1,58 @@
+#pk{
+	color: green;
+}
+
+.btn2{
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+#reg .form-row{
+	margin-top: 50px;
+}
+
+.btnn{
+	margin-top: 50px;
+}
+
+a{
+	color: white;
+
+}
+a:hover{
+	color: white;
+}
+
+
+.select2-container .select2-selection--single{
+    height:38px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+}
+.select2-selection__rendered{
+	line-height: 35px !important
+}
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}

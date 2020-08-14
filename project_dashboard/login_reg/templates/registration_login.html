@@ -1,0 +1,13 @@
+  {% extends 'base.html'%}
+   {% block navbar %}
+           <a class="navbar-brand">Eclinic</a>
+    {% endblock %}
+
+{% block content %}
+  <div class="container" id="reg" >
+          <button type="button" id="hospital" class="btn btn-primary btn-lg btn-block btn2"> <a class="link" href="{% url 'reg_hospital' %}">Hospital Registration</a></button>
+          <button type="button" id="doctor"  class="btn btn-primary btn-lg btn-block btn2"> <a class="link" href="{% url 'reg_doc' %}">Doctor Registration</a></button>
+          <button type="button" id="patient"  class="btn btn-primary btn-lg btn-block btn2"><a class="link" href="{% url 'reg_patient' %}">Patient Registration</a></button>
+      </div>
+
+{% endblock %}
